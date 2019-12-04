@@ -40,7 +40,9 @@ connection.addEventListener('message', message => {
   }
   let incomingMessage = {};
   try {
-    incomingMessage = JSON.parse(message.data) // kijk of we het inkomende bericht kunnen parsen
+    // incomming message
+    incomingMessage = JSON.parse(message.data);
+    // some changes, kijk of we het inkomende bericht kunnen parsen
   } catch {
     incomingMessage.message = message.data // anders gebruiken we de string
   }
@@ -57,10 +59,12 @@ connection.addEventListener('message', message => {
   if (incomingMessage.status === 'success') {
     // here we are checking if the message was sent as part of the book creation flow.
     // if it is, we are fetching the books anew.
-    displayBooks()
+    displayBooks();
+
+    // This is a test
   }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  displayBooks()
+  displayBooks();
 });
